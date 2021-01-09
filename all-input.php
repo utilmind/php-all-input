@@ -64,11 +64,13 @@ $post = isset($_POST) ? key_val_arr2list($_POST, null, "\n") : false;
 $get = isset($_GET) ? key_val_arr2list($_GET, null, "\n") : false;
 $server = isset($_SERVER) ? key_val_arr2list($_SERVER, null, "\n") : false;
 
-$out = ($arg ? "ARG:\n$arg\n\n\n" : '').
+$out = date('r', time())." =====================================\n".
+       ($arg ? "ARG:\n$arg\n\n\n" : '').
        ($input ? "INPUT:\n$input\n\n\n" : '').
        ($post ? "POST:\n$post\n\n\n" : '').
        ($get ? "GET:\n$get\n\n\n" : '').
-       ($server ? "SERVER:\n$server\n\n\n" : '');
+       ($server ? "SERVER:\n$server\n\n\n" : '').
+       "\n\n\n";
 
 
 write_file('./all-input.txt', $out, 'a');
